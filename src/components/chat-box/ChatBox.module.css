@@ -92,7 +92,10 @@
 .inquryQ {
   padding: 5px;
   border-radius: 10px;
-  background-color: #d5d8dc;
+  background-color: #E4E4E7;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  font-weight: 500;
+
 }
 
 .inputContainer {
