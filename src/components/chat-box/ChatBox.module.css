@@ -46,13 +46,11 @@
   max-height: 41vh;
   overflow-y: auto;
 }
-.userMsgContainer {
+.resMsgContainer{
   display: flex;
-  justify-content: flex-end;
-  gap: 10px;
   align-items: flex-end;
-  align-self: flex-end;
-  max-width: 80%; /* Allow it to take full width */
+  gap: 10px;
+  max-width: 80%;
 }
 
 .userMsg {
@@ -61,8 +59,9 @@
   padding: 10px;
   border-radius: 10px;
   word-wrap: break-word;
-  max-width: 85%; /* Reduce width to avoid overflow */
-  flex-grow: 1; /* Allow it to grow and fill the available space */
+  max-width: 80%; 
+  align-self: flex-end;
+  width: auto;
 }
 
 .responseImage {
@@ -70,17 +69,15 @@
   flex-shrink: 0; /* Prevent the image from shrinking */
 }
 .responseMsg {
-  max-width: 70%;
+  max-width: 100%;
   padding: 10px;
   border-radius: 10px;
   word-wrap: break-word;
-}
-
-.responseMsg {
   background-color: #d5d8dc;
   align-self: flex-start;
   width: auto;
 }
+
 
 .inquryBox {
   display: flex;
@@ -142,8 +139,12 @@
     flex-grow: 1;
     max-height: calc(75vh - 160px);
   }
-
-  .responseMsg,
+  .resMsgContainer{
+    max-width: 85%;
+  }
+  .responseMsg{
+    font-size: 14px;
+  }
   .userMsg {
     max-width: 85%;
     font-size: 14px;
@@ -164,7 +165,12 @@
 }
 
 @media (max-width: 350px) {
-  .responseMsg,
+  .resMsgContainer{
+    max-width: 90%;
+  }
+  .responseMsg{
+    font-size: 13px;
+  }
   .userMsg {
     max-width: 90%;
     font-size: 13px;

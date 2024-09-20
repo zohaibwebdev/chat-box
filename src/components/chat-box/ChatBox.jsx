@@ -23,7 +23,6 @@ const ChatBox = ({
       type: "response",
       text: "By the way, you can create a chatbot like me for your website! 😮",
     },
-    
   ]);
 
   const chatBoxRef = useRef(null);
@@ -45,7 +44,7 @@ const ChatBox = ({
     ]);
   };
 
-  const handleRefresh = ()=>{
+  const handleRefresh = () => {
     setMessages([
       {
         type: "response",
@@ -55,9 +54,13 @@ const ChatBox = ({
         type: "response",
         text: "By the way, you can create a chatbot like me for your website! 😮",
       },
-      
-    ])
-  }
+    ]);
+  };
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      onSend();
+    }
+  };
 
   useEffect(() => {
     if (chatBoxRef.current) {
@@ -80,7 +83,7 @@ const ChatBox = ({
             className={styles.headerImage}
           />
           <h1 className={styles.headerText} style={{ color: chatboxTextColor }}>
-            Adam Zar
+            Code Analytics
           </h1>
         </div>
         <button onClick={handleRefresh}>
@@ -91,27 +94,7 @@ const ChatBox = ({
         <div className={styles.chatBox} ref={chatBoxRef}>
           {messages.map((item, index) =>
             item.type === "response" ? (
-              <div
-                key={index}
-                className={styles.responseMsg}
-                style={{
-                  backgroundColor: responseMsgBgColor,
-                  color: chatboxTextColor,
-                }}
-              >
-                <p>{item.text}</p>
-              </div>
-            ) : (
-              <div key={index} className={styles.userMsgContainer}>
-                <div
-                  className={styles.userMsg}
-                  style={{
-                    backgroundColor: userMsgBgColor,
-                    color: messageColor,
-                  }}
-                >
-                  <p>{item.text}</p>
-                </div>
+              <div key={index} className={styles.resMsgContainer}>
                 <Image
                   src={userImageSrc}
                   width={40}
@@ -119,6 +102,26 @@ const ChatBox = ({
                   alt="user"
                   className={styles.responseImage}
                 />
+                <div
+                  className={styles.responseMsg}
+                  style={{
+                    backgroundColor: responseMsgBgColor,
+                    color: chatboxTextColor,
+                  }}
+                >
+                  <p>{item.text}</p>
+                </div>
+              </div>
+            ) : (
+              <div
+                key={index}
+                className={styles.userMsg}
+                style={{
+                  backgroundColor: userMsgBgColor,
+                  color: messageColor,
+                }}
+              >
+                <p>{item.text}</p>
               </div>
             )
           )}
@@ -143,6 +146,7 @@ const ChatBox = ({
               placeholder="Message..."
               style={{ color: inputTextColor }}
               onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={handleKeyDown}
               value={message}
             />
           </div>
