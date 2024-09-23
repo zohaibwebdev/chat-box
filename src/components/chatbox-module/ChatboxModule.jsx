@@ -8,7 +8,7 @@ import ChatBox from '../chat-box/ChatBox';
 const ChatboxModule = ({
   buttonBgColor = '#0a0a0c',  // Button background color
   iconColor = '#fff',        // Icon color
-  chatboxBgColor = '#edeade', // Chatbox background color
+  chatboxBgColor = '#FFFF', // Chatbox background color
   chatboxTextColor = '#000',  // Chatbox overall text color
   responseMsgBgColor = '#d5d8dc', // Response message background color
   userMsgBgColor = '#7c3aed',     // User message background color

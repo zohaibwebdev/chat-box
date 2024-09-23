@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RefreshIcon = ({ width = 24, height = 24, color = 'currentColor' }) => {
+const RefreshIcon = ({ width = 20, height = 20, color = 'currentColor' }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

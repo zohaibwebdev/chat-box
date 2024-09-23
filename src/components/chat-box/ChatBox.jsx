@@ -6,10 +6,10 @@ import Image from "next/image";
 
 const ChatBox = ({
   userImageSrc = "/images/user.jpg",
-  chatboxBgColor = "#edeade",
-  chatboxTextColor = "#000",
-  responseMsgBgColor = "#d5d8dc",
-  userMsgBgColor = "#7c3aed",
+  chatboxBgColor = "#FFFFFF",
+  chatboxTextColor = "#27272a",
+  responseMsgBgColor = "#e4e4e7",
+  userMsgBgColor = "#7C3AED",
   messageColor = "#fff",
   inputTextColor = "#000",
 }) => {
@@ -90,15 +90,14 @@ const ChatBox = ({
           <RefreshIcon />
         </button>
       </div>
-      <div className={styles.chatboxContainer}>
-        <div className={styles.chatBox} ref={chatBoxRef}>
+      <div className={styles.chatboxContainer} ref={chatBoxRef}>
           {messages.map((item, index) =>
             item.type === "response" ? (
               <div key={index} className={styles.resMsgContainer}>
                 <Image
                   src={userImageSrc}
-                  width={40}
-                  height={40}
+                  width={32}
+                  height={32}
                   alt="user"
                   className={styles.responseImage}
                 />
@@ -126,6 +125,7 @@ const ChatBox = ({
             )
           )}
         </div>
+
         <div className={styles.inquryBox}>
           {[
             "Inquiry question 1",
@@ -138,6 +138,7 @@ const ChatBox = ({
             </div>
           ))}
         </div>
+        
         <div className={styles.inputContainer}>
           <div className={styles.inputDiv}>
             <input
@@ -157,7 +158,6 @@ const ChatBox = ({
           </div>
         </div>
       </div>
-    </div>
   );
 };
 
